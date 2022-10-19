@@ -5,10 +5,11 @@ How to build store front app
 ```bash
 ng new storeFront
 ```
-Test your new app with runnig it by:
+CHECK POINT: test your new app by runnig it:
 ```bash
 ng serve --port 4100
 ```
+It should display standard angular app front page.
 
 ### Setup GIT 
 Add remote repository:
@@ -20,7 +21,7 @@ Add initial commit:
 git add .
 git commit -m 'feat: Intial commit'
 ```
-## Display Product List
+## Get Products from web server
 
 ### Create Product Model
 ```bash
@@ -41,8 +42,8 @@ ng g c ProductService
 
 To be able to make http calls add code to `src/app/app.modul.ts`:
 ```typescript
-// import http client for making http requests
-import { HttpClient } from '@angular/common/http'
+// import HttpClientModule for making http requests
+import { HttpClientModule } from '@angular/common/http'
 
 //@NgModule({
     // ...
@@ -102,6 +103,8 @@ export class ProductListComponent implements OnInit {
     // get product data
     this.productService.getProducts().subscribe( data => {
       this.products = data
+      console.log(`products received: ${JSON.stringify(this.products, null, 4)}`)
+
     })
   }
 }
@@ -111,3 +114,36 @@ Replace content of `src/app/app.component.html` with:
 ```html
 <app-product-list></app-product-list>
 ```
+CHECK POINT : running `ng serve` you should see see the list of products in console
+
+
+## Display Product List
+
+Create product component to use it display each product on page.
+
+### Create Product Component
+
+```bash
+ng g c components/Product
+```
+`src/app/components/product-list/product.component.ts`
+```typescript
+
+```
+
+
+### Setup Product List to display product list
+replace content of `src/app/components/product-list/product-list.component.html` with:
+```html
+<!--
+    use input property binding to bind product in product-list component
+    to product in product component
+ -->
+<app-product *ngFor="let product of products" [product]="product"></app-product>
+```
+
+CHECK POINT: webpage should show a `product works!` for each product in our list
+
+### display product
+
+
