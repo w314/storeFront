@@ -1,5 +1,37 @@
 # StoreFront
 
+## Setup
+
+### Install node
+Install `nvm` node version manager:
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+User `nvm` to install the latest version of node:
+```bash
+nvm install node
+```
+
+If you don't have `angular` installed, run:
+```bash
+sudo npm install -g @angular/cli
+```
+
+Start application:
+```bash
+ng serve
+```
+
+Open browser at:
+```
+localhost:4200
+```
+If you want ot use another port open application by providing the desired port number:
+```bash
+ng serve --port 4100
+```
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
 ## Development server
