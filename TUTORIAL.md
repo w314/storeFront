@@ -146,4 +146,34 @@ CHECK POINT: webpage should show a `product works!` for each product in our list
 
 ### display product
 
+`src/app/components/product-list/product.component.html`:
+```html
 
+```
+## Set up router
+
+Run ng generate to create the application routing module.
+```bash
+ng generate module app-routing --flat --module=app
+```
+--flat Puts the file in src/app instead of its own directory.
+--module=app Tells ng generate to register it in the imports array of the AppModule.
+
+Add code to `src/app/app-routing.module.ts`
+- import router
+- import components
+- create routes
+- add RouterModule to `@NgModule` imports
+- add RouterModule to `@NgModule` exports
+
+```typescript
+
+```
+
+### Create NavBar Component
+```bash
+ng g c components/NavBar
+```
+`src/app/components/nav-bar/nav-bar.component.html`:
+- import Router
+- add Router as constructor parameter
