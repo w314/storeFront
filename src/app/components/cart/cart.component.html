@@ -1,8 +1,11 @@
 <ul>
     <li *ngFor="let item of cart">
         <app-product [product]="item.product"></app-product>
-        <label for="quantity">Quantity</label>
-        <p id="quantity">{{item.quantity}}</p>
-        <button type="button" (click)="deleteItem(item.id)">delete</button>
+        <form (ngSubmit)="updateQuantity(item.id, item.quantity)">
+            <label for="quantity">Quantity</label>
+            <input type="text" id="quantity" name="quantity" [(ngModel)]="item.quantity">
+            <button type="submit">Update</button>
+            <button type="button" (click)="deleteItem(item.id)">delete</button>
+        </form>
     </li>
 </ul>

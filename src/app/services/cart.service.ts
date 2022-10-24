@@ -41,4 +41,11 @@ export class CartService {
   deleteItem(id:number) {
     this.cart.items = this.cart.items.filter(item => item.id != id)
   }
+
+  updateQuantity(id: number, quantity: number) {
+    console.log(`cart item id: ${id}, new quantity: ${quantity}`)
+    const itemIndex = this.cart.items.findIndex(item => item.id == id)    
+    this.cart.items[itemIndex].quantity = quantity
+    console.log(this.cart)
+  }
 }

@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
     // get product data
     this.productService.getProducts().subscribe( data => {
       this.products = data
-      console.log(`products received: ${JSON.stringify(this.products, null, 4)}`)
+      // console.log(`products received: ${JSON.stringify(this.products, null, 4)}`)
     })
   }
 

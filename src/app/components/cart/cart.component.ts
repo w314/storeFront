@@ -49,4 +49,11 @@ export class CartComponent implements OnInit {
     this.cart = this.cart.filter(item => item.id != id)
     this.cartService.deleteItem(id)  
   }
+
+  updateQuantity(id: number, quantity: number): void {
+    console.log(`UPDATE BUTTON CLICKED`)
+    // const itemIndex = this.cart.findIndex(item => item.id == id)
+    // this.cart.
+    this.cartService.updateQuantity(id, quantity)
+  }
 }
