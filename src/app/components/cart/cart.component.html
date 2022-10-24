@@ -14,7 +14,7 @@
                 [(ngModel)]="item.quantity"
                 #quantity="ngModel"
             >
-            <button type="submit" [disabled]="quantity.invalid">Update</button>
+            <button type="submit" [disabled]="quantity.invalid || quantity.pristine">Update</button>
             <button type="button" (click)="deleteItem(item.id)">delete</button>
         </form>
     </li>
