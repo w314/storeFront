@@ -22,6 +22,7 @@ export class CartComponent implements OnInit {
 
   cart: CartItem [] = []
   products: Product[] = []
+  total: number = 0
 
   constructor(
     private cartService: CartService,
@@ -39,15 +40,21 @@ export class CartComponent implements OnInit {
           product: product,
           quantity: item.quantity,
         }
+        this.total += product.price * item.quantity
         this.cart.push(cartItem)
       });
     })
  
   }
+
+  updateTotal(): void {
+    this.total = this.cart.reduce(((total, item) => total += item.product.price * item.quantity), 0)
+  }
       
   deleteItem(id: number): void {      
     this.cart = this.cart.filter(item => item.id != id)
     this.cartService.deleteItem(id)  
+    this.updateTotal()
   }
 
   updateQuantity(id: number, quantity: number): void {
@@ -55,5 +62,6 @@ export class CartComponent implements OnInit {
     // const itemIndex = this.cart.findIndex(item => item.id == id)
     // this.cart.
     this.cartService.updateQuantity(id, quantity)
+    this.updateTotal()
   }
 }
