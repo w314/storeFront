@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/Product';
 import { Order } from 'src/app/models/Order';
 import { ProductService } from './../../services/product.service'
+import { CurrencyPipe } from '@angular/common';
 
 class CartItem { 
   id: number = 0
@@ -22,7 +23,7 @@ export class CartComponent implements OnInit {
 
   cart: CartItem [] = []
   products: Product[] = []
-  total: number = 0
+  total: string = ''
 
   constructor(
     private cartService: CartService,
@@ -40,15 +41,21 @@ export class CartComponent implements OnInit {
           product: product,
           quantity: item.quantity,
         }
-        this.total += product.price * item.quantity
+        // this.total += product.price * item.quantity
         this.cart.push(cartItem)
       });
+      this.updateTotal()
     })
  
   }
 
   updateTotal(): void {
-    this.total = this.cart.reduce(((total, item) => total += item.product.price * item.quantity), 0)
+    const dollarUS = Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    })
+    const totalPrice: number = this.cart.reduce(((total, item) => total += item.product.price * item.quantity), 0)
+    this.total = dollarUS.format(totalPrice)
   }
       
   deleteItem(id: number): void {      
