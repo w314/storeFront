@@ -1,0 +1,7 @@
+<ul>
+    <li *ngFor="let item of cart">
+        <app-product [product]="item.product"></app-product>
+        <label for="quantity">Quantity</label>
+        <p id="quantity">{{item.quantity}}</p>
+    </li>
+</ul>

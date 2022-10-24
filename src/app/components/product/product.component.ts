@@ -11,6 +11,7 @@ export class ProductComponent implements OnInit {
 
   // use Input decorator to indicate data is coming from parent component
   @Input() product: Product
+  // @Input() productId: number
 
   constructor() {
     // intitalize product variable
@@ -22,6 +23,7 @@ export class ProductComponent implements OnInit {
       description: '',
       categoryId: 0
     }
+    // this.productId = 0
   }
   
   ngOnInit(): void {

@@ -126,10 +126,6 @@ Create product component to use it display each product on page.
 ```bash
 ng g c components/Product
 ```
-`src/app/components/product-list/product.component.ts`
-```typescript
-
-```
 
 
 ### Setup Product List to display product list
@@ -146,7 +142,7 @@ CHECK POINT: webpage should show a `product works!` for each product in our list
 
 ### display product
 
-`src/app/components/product-list/product.component.html`:
+`src/app/components/product/product.component.html`:
 ```html
 
 ```
@@ -174,6 +170,142 @@ Add code to `src/app/app-routing.module.ts`
 ```bash
 ng g c components/NavBar
 ```
-`src/app/components/nav-bar/nav-bar.component.html`:
+`src/app/components/nav-bar/nav-bar.component.ts`:
 - import Router
 - add Router as constructor parameter
+
+`src/app/components/nav-bar/nav-bar.component.html`:
+- use `routerLink="/products"` instead of `href=`, it allows navigation without reloading the pages
+
+`src/app/app-component.html`:
+replace content with:
+```html
+<app-nav-bar></app-nav-bar>
+<router-outlet></router-outlet>
+```
+This will display nav-bar on every page and lets the router fill the rest of the page with conent based on the page requested.
+
+CHECK POINT: navigating to localhost:4200 will automatically redirect to localhost:4200/products and a link to `Products` is displayed as part of the navigation bar
+
+
+## Add Product Detail Page
+
+The product detail page will display details of the product. It will be served when asked for path `/products/productId`.
+
+Create ProductDetail component:
+```bash
+ng g c components/ProductDetail
+```
+
+Setup click on product to open product detail page of project:
+`src/app/components/product-list/product-list.component.html`
+- put each product in a  <li> tag
+- wrap each product in an <a> tag within the <li> tag setting the routerLink property to `/products/{{product.id}}
+- add `/products/:productId` route to routes array in `src/app/app-routing-module.ts`
+
+CHECK POINT: at this point clicking on any project should take you a product detail page which says: "product-detail works!"
+
+
+Create getProduct method in `src/app/services/product-service.service.ts`
+
+
+`src/app/components/product-detail/product-detail.component.ts`:
+- import product model
+- import product service
+- add product service as private parameter to constructor
+- import ActvatedRoute to be able to get productId from url path
+- add activatedRoute as private parameter to constructor
+- create product variable
+- in OnInit use activetedRoute to get id from url, use productService to get products and select required product
+
+
+`src/app/components/product-detail/product-detail.component.html`:
+- use product component to display product
+
+
+### Add possibility to create a cart
+
+#### Create models
+OrderItem Model
+```bash
+touch src/app/models/OrderItem.ts
+```
+Order Model
+```bash
+touch src/app/models/Order.ts
+```
+
+#### Create cartservice
+```bash
+ng g s services/Cart
+```
+- create `cart` variable
+- add `addToCart()` function
+
+#### Create addToCart component
+
+```bash
+ng g c components/addToCart
+```
+
+
+To create the form 
+
+`src/app/app.module.ts`
+- import `FormsModule`
+- add `FormsModule` to `@NgModule` `imports` array
+
+`src/app/components/add-to-cart/add-to-cart.component.ts`
+- import Input decorator
+- import CartService
+- add cartService as private parameter to constructor
+- @Input() productId property from parent component
+- add quantity property
+- add onSubmit method
+
+`src/app/components/add-to-cart/add-to-cart.component.html`
+```html
+<!-- use (ngSubmit) event listener to listen to submit event and set function to call -->
+<form (ngSubmit)="onSubmit()">
+    <!-- use interpolation {{ }} to display productId property -->
+    <p>{{productId}}</p>
+    <label for="quantity">Quantity</label>
+    <!-- use two way binding [( )] to bind input to quantity property -->
+    <!-- input tag's name property has to be set -->
+    <input type="text" id="quantity" name="quantity" [(ngModel)]="quantity">
+    <button type="submit">Add To Cart</button>
+</form>
+```
+
+### Add cart page to application
+
+Generate Cart component:
+```bash
+ng g c components/Cart
+```
+
+`src/app/app-routing-module.ts`
+- add cart path to routes
+
+`src/app/components/nav-bar/nav-bar.component.html`
+- add link to cart
+
+`src/app/services/cartService.ts`
+- add getCart() method
+
+`src/app/components/cart/cart.component.ts`
+- import Order Model
+- import CartService
+- add cartService as private parameter to constructor
+- add cart variable
+- in OnInit initialize cart variable by calling cartService's getCart()
+
+Create OrderItem component
+```bash
+ng g c components/OrderItem
+```
+`src/app/components/order-item/order-item.component.ts`
+- import OrderItem model
+- import Input decorater
+- add OrderItem property, use @Input()
+
