@@ -12,7 +12,7 @@ export class AddToCartComponent implements OnInit {
   // componenet receives productId from parent component
   @Input() productId: number = 0
   // quantity is set to string as it comes from an text input form 
-  quantity: string = '1'
+  quantity: number = 1
 
   constructor(private cartService: CartService  ) { }
 
@@ -20,7 +20,7 @@ export class AddToCartComponent implements OnInit {
   }
 
   onSubmit() {
-    this.cartService.addToCart(this.productId, parseInt(this.quantity))
+    this.cartService.addToCart(this.productId, this.quantity)
   }
 
 }
