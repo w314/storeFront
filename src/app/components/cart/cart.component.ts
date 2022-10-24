@@ -5,6 +5,7 @@ import { Order } from 'src/app/models/Order';
 import { ProductService } from './../../services/product.service'
 
 class CartItem { 
+  id: number = 0
   product: Product = {} as Product
   quantity:number = 0
 }
@@ -34,13 +35,18 @@ export class CartComponent implements OnInit {
       activeOrder.items.forEach(item => {
         const product: Product = this.products.find(product => product.id == item.productId) as Product
         const cartItem: CartItem = {
+          id: item.id,
           product: product,
           quantity: item.quantity,
         }
         this.cart.push(cartItem)
       });
     })
-
+ 
   }
-
+      
+  deleteItem(id: number): void {      
+    this.cart = this.cart.filter(item => item.id != id)
+    this.cartService.deleteItem(id)  
+  }
 }

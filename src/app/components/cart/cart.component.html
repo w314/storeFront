@@ -3,5 +3,6 @@
         <app-product [product]="item.product"></app-product>
         <label for="quantity">Quantity</label>
         <p id="quantity">{{item.quantity}}</p>
+        <button type="button" (click)="deleteItem(item.id)">delete</button>
     </li>
 </ul>

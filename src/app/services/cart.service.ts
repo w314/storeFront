@@ -39,10 +39,6 @@ export class CartService {
   }
 
   deleteItem(id:number) {
-    // find index of item to delete
-    const itemIndex = this.cart.items.findIndex(item => item.id == id)
-    // delete item
-    if (itemIndex != -1 )
-      this.cart.items.splice(itemIndex, 1)
+    this.cart.items = this.cart.items.filter(item => item.id != id)
   }
 }
