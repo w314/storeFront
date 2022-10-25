@@ -1,5 +1,5 @@
 <app-cart></app-cart>
-<form>
+<form #form="ngForm" (ngSubmit)="onSubmit()">
     <label for="name">Full name</label>
     <input
         type="text"
@@ -17,5 +17,5 @@
         type="text"
         id="credit-card"
     >
-    <button type="submit">Submit</button>
+    <button type="submit" [disabled]="form.invalid">Submit</button>
 </form>

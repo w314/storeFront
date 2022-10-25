@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { SuccessComponent } from './components/success/success.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     AddToCartComponent,
     CartComponent,
     OrderItemComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    SuccessComponent
   ],
   imports: [
     BrowserModule,
