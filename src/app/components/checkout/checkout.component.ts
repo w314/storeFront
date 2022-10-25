@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
+import { Form } from '@angular/forms'
 
 @Component({
   selector: 'app-checkout',
@@ -8,14 +9,17 @@ import { Router } from '@angular/router'
 })
 export class CheckoutComponent implements OnInit {
 
+  name: string = ''
+
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit():void {
-    // sessionStorage.setItem('name', name)
-    console.log('checkout submit button clicked')
+    sessionStorage.setItem('name', this.name)
+    // console.log('checkout submit button clicked')
     this.router.navigate(['checkout','success'])
   }
 

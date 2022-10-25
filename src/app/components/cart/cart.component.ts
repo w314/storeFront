@@ -45,6 +45,7 @@ export class CartComponent implements OnInit {
         this.cart.push(cartItem)
       });
       this.updateTotal()
+      sessionStorage.setItem('total', this.total)
     })
  
   }
@@ -56,6 +57,7 @@ export class CartComponent implements OnInit {
     })
     const totalPrice: number = this.cart.reduce(((total, item) => total += item.product.price * item.quantity), 0)
     this.total = dollarUS.format(totalPrice)
+    sessionStorage.setItem('total', this.total)
   }
       
   deleteItem(id: number): void {      
