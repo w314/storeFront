@@ -11,6 +11,7 @@ import { AddToCartComponent } from './components/add-to-cart/add-to-cart.compone
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { OrderItemComponent } from './components/order-item/order-item.component
     ProductDetailComponent,
     AddToCartComponent,
     CartComponent,
-    OrderItemComponent
+    OrderItemComponent,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -6,13 +6,15 @@ import { Routes, RouterModule } from '@angular/router'
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 // create routes
 const routes: Routes = [
   { path: 'products', component: ProductListComponent },
   { path: '', redirectTo: '/products', pathMatch: 'full' },
   { path: 'products/:productId', component: ProductDetailComponent },
-  { path: 'cart', component: CartComponent }
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent}
 ]
 
 @NgModule({
