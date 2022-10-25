@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    /* 
+    Sand Tan: #e1b382
+
+Sand Tan Shadow: #c89666
+
+Night Blue: #2d545e
+
+Night Blue Shadow: #12343b
+    
+    */
+    /* --header-color: #12343b; */
+    --header-color: black;
+    --link-color: #2d545e;
+
+    --main-bg-color: white;
+    --main-color: black;
+    /* --main-font:  */
+    /* --button-bg-color: #e1b382;
+    --button-border-color: #c89666; */
+    --button-bg-color: var(--header-color);
+    --button-border-color: #2d545e;
+
+
+    --button-color: white;
+}
+
+button {
+    padding: 5px;
+    margin: 0;
+    /* color: var(--button-color);
+    background-color: var(--button-bg-color);
+    border: 2px solid var(--button-border-color); */
+}
