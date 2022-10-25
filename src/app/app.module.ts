@@ -13,6 +13,9 @@ import { CartComponent } from './components/cart/cart.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { SuccessComponent } from './components/success/success.component';
+import { ProductImageComponent } from './components/product-image/product-image.component';
+import { ProductNameComponent } from './components/product-name/product-name.component';
+import { ProductPriceComponent } from './components/product-price/product-price.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { SuccessComponent } from './components/success/success.component';
     CartComponent,
     OrderItemComponent,
     CheckoutComponent,
-    SuccessComponent
+    SuccessComponent,
+    ProductImageComponent,
+    ProductNameComponent,
+    ProductPriceComponent
   ],
   imports: [
     BrowserModule,

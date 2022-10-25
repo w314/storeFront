@@ -40,7 +40,7 @@ export class ProductDetailComponent implements OnInit {
       this.productService.getProducts().subscribe(data => {
         // find product with requested id
         this.product = data.find(product => product.id == productId)!
-        console.log(`product in product-detail: ${JSON.stringify(this.product, null, 4)})`)
+        // console.log(`product in product-detail: ${JSON.stringify(this.product, null, 4)})`)
       })
     }) 
   }
