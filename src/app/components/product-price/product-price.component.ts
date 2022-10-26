@@ -8,16 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProductPriceComponent implements OnInit {
 
   @Input() price: number = 0
-  priceString: string = ''
 
   constructor() { }
 
   ngOnInit(): void {
+  
+  }
+
+  priceToString():string {
     const dollarUS = Intl.NumberFormat('en-US', {
       style : 'currency',
       currency: 'USD'
     })
-    this.priceString = dollarUS.format(this.price)
+    return dollarUS.format(this.price)
   }
+
 
 }

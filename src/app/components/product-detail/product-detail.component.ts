@@ -35,7 +35,7 @@ export class ProductDetailComponent implements OnInit {
     let productId: number
     this.activatedRoute.params.subscribe(params => {
       productId = params['productId']
-      console.log(`product id in url: ${productId}`)
+      // console.log(`product id in url: ${productId}`)
       // get products
       this.productService.getProducts().subscribe(data => {
         // find product with requested id
