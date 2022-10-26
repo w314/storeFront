@@ -1,24 +1,36 @@
-<ul>
-    <li *ngFor="let item of cart">
-        <app-product [product]="item.product"></app-product>
-        <form (ngSubmit)="updateQuantity(item.id, item.quantity)">
-            <label for="quantity">Quantity</label>
-            <input
-                type="number" 
-                min="1"
-                max="100"
-                step="1"
-                pattern="[0-9]*"
-                id="quantity" 
-                name="quantity" 
-                [(ngModel)]="item.quantity"
-                #quantity="ngModel"
-            >
-            <button type="submit" [disabled]="quantity.invalid || quantity.pristine">Update</button>
-            <button type="button" (click)="deleteItem(item.id)">delete</button>
-        </form>
-    </li>
-</ul>
-<label for="total">Total</label>
-<p>{{ total }}</p>
-<a routerLink="/checkout">Checkout</a>
+<div class="content" *ngIf="cart.length > 0">
+    <div class="summary">
+        <label for="total">Total: </label>
+        <p class="total">{{ total }}</p>
+        <a routerLink="/checkout"><button class="checkout" type="button">Checkout</button></a>
+    </div>
+    <ul class="cart">
+        <li class="item" *ngFor="let item of cart">
+            <app-product-image [url]="item.product.url"></app-product-image>
+            <div class="details">
+                <app-product-name [name]="item.product.name"></app-product-name>
+                <app-product-price [price]="item.product.price"></app-product-price>
+            </div>
+            <form (ngSubmit)="updateQuantity(item.id, item.quantity)">
+                <!-- <label for="quantity">Quantity</label> -->
+                <input
+                    type="number" 
+                    min="1"
+                    max="100"
+                    step="1"
+                    pattern="[0-9]*"
+                    id="quantity" 
+                    name="quantity" 
+                    [(ngModel)]="item.quantity"
+                    #quantity="ngModel"
+                    aria-label="quantity"
+                >
+                <button class="update" type="submit" [disabled]="quantity.invalid || quantity.pristine">Update</button>
+                <button class="delete" type="button" (click)="deleteItem(item.id)">delete</button>
+            </form>
+        </li>
+    </ul>
+</div>
+<div class="content" *ngIf="cart.length == 0">
+    <h1>your cart is empty</h1>
+</div>
