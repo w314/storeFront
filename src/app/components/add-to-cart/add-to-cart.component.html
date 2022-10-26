@@ -2,10 +2,11 @@
 <form #form="ngForm" (ngSubmit)="onSubmit()">
     <!-- use interpolation {{ }} to display productId property -->
     <!-- <p>{{productId}}</p> -->
-    <label for="quantity">Quantity</label>
+    <!-- <label for="quantity">Quantity</label> -->
     <!-- use two way binding [( )] to bind input to quantity property -->
     <!-- input tag's name property has to be set -->
     <input 
+        class="displayBlock center"
         type="number" 
         min="1"
         max="100"
@@ -13,7 +14,12 @@
         pattern="[0-9]*"
         id="quantity" 
         name="quantity" 
+        aria-label="quantity"
         [(ngModel)]="quantity"
     >
-    <button type="submit" [disabled]="form.invalid">Add To Cart</button>
+    <button
+        class="displayBlock center"
+        type="submit" 
+        [disabled]="form.invalid"
+    >Add To Cart</button>
 </form>

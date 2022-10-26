@@ -1,17 +1,17 @@
 <ul>
     <!-- use the ngFor structural directive to loop through products in the product list -->
-    <li *ngFor="let product of products">
+    <li class="product" *ngFor="let product of products">
         <!-- use routerLink instead of href in <a> tag -->
         <!-- use interpolation to add product id to url -->
 
-        <a class="product" routerLink="/products/{{product.id}}">
+        <a  routerLink="/products/{{product.id}}">
             <!--
                 use input property binding to bind product in product-list component
                 to product in product component
              -->
             <app-product-image [url]="product.url" [name]="product.name"></app-product-image>
-            <app-product-name [name]="product.name"></app-product-name>
-            <app-product-price [price] = "product.price"></app-product-price>
+            <app-product-name class="inline" [name]="product.name"></app-product-name>                
+            <app-product-price class="inline" [price] = "product.price"></app-product-price>
             <!-- <app-product  [product]="product"></app-product> -->
         </a>
         <app-add-to-cart [productId]="product.id"></app-add-to-cart>

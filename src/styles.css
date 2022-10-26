@@ -24,12 +24,47 @@ Night Blue Shadow: #12343b
 
 
     --button-color: white;
+    --button-padding: 3px;
+    --button-margin: 5px auto;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 1200px;
+    margin: auto;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit
 }
 
 button {
-    padding: 5px;
-    margin: 0;
+    padding: var(--button-padding);
+    margin: var(--button-margin);
     /* color: var(--button-color);
     background-color: var(--button-bg-color);
     border: 2px solid var(--button-border-color); */
+    border-radius: 5px;
+}
+
+input {
+    padding: var(--button-padding);
+    margin: var(--button-margin);
+}
+
+.displayBlock {
+    display: block;
+}
+
+.productName {
+    font-weight: bold
 }

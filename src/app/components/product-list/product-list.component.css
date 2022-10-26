@@ -1,11 +1,22 @@
-li {
-    list-style: none;
+ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
-a.product {
-    text-decoration: none;
-    color: inherit
+.product {
+    width: 100%;
+    padding: 2%;
+    min-width: 280px;
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
 }
 
+.inline {
+    /* display: inline-block; */
+}
 
-
+/* @media screen {
+    
+} */

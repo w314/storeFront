@@ -1,3 +1,9 @@
+header {
+    padding: 10px;
+}
+
 h1 {
-    color: var(--header-color)
+    color: var(--header-color);
+    text-align: center;
+    /* margin: 20px 0; */
 }
