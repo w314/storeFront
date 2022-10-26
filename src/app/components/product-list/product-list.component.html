@@ -9,9 +9,9 @@
                 use input property binding to bind product in product-list component
                 to product in product component
              -->
-            <app-product-image [url]="product.url" [name]="product.name"></app-product-image>
-            <app-product-name class="inline" [name]="product.name"></app-product-name>                
-            <app-product-price class="inline" [price] = "product.price"></app-product-price>
+            <app-product-image class="image" [url]="product.url" [name]="product.name"></app-product-image>
+            <app-product-name [name]="product.name"></app-product-name>                
+            <app-product-price [price] = "product.price"></app-product-price>
             <!-- <app-product  [product]="product"></app-product> -->
         </a>
         <app-add-to-cart [productId]="product.id"></app-add-to-cart>

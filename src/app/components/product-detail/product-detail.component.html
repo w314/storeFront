@@ -1,2 +1,9 @@
-<app-product [product]="product"></app-product>
-<app-add-to-cart [productId]="product.id"></app-add-to-cart>app
+<div class="product">
+    <app-product-image class="image" [url]="product.url"></app-product-image>
+    <div class="productDetails">
+        <app-product-name [name]="product.name"></app-product-name>
+        <app-product-price [price]="product.price"></app-product-price>
+        <p>{{ product.description }}</p>
+        <app-add-to-cart [productId]="product.id"></app-add-to-cart>
+    </div>
+</div>
