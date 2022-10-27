@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'
-import { Form } from '@angular/forms'
+import { CartService } from 'src/app/services/cart.service'; 
 
 @Component({
   selector: 'app-checkout',
@@ -15,14 +15,14 @@ export class CheckoutComponent implements OnInit {
   success: boolean = false
 
 
-  constructor(private router:Router) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit():void {
-    sessionStorage.setItem('name', this.name)
     this.success = true
+    this.cartService.emptyCart()
     // console.log('checkout submit button clicked')
     // this.router.navigate(['checkout','success'])
   }

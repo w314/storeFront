@@ -49,4 +49,8 @@ export class CartService {
     this.cart.items[itemIndex].quantity = quantity
     console.log(this.cart)
   }
+
+  emptyCart(): void {
+    this.cart.items = []
+  }
 }
