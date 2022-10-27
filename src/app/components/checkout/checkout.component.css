@@ -1,0 +1,27 @@
+.checkout {
+    display: flex;
+    flex-direction: row;
+}
+
+app-cart {
+    width: 60%
+}
+
+form {
+    margin-top: 50px;
+}
+
+form * {
+    display: block;
+    padding: 5px;
+}
+
+form input {
+    margin-bottom: 20px;
+}
+
+form button {
+    margin-top: 40px;
+    padding: 10px;
+    font-weight: 600;
+}

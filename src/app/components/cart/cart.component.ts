@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/Product';
 import { Order } from 'src/app/models/Order';
@@ -24,6 +24,7 @@ export class CartComponent implements OnInit {
   cart: CartItem [] = []
   products: Product[] = []
   total: string = ''
+  @Input() checkout: boolean = false;
 
   constructor(
     private cartService: CartService,

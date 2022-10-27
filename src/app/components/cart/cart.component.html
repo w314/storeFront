@@ -2,7 +2,7 @@
     <div class="summary">
         <label for="total">Total: </label>
         <p class="total">{{ total }}</p>
-        <a routerLink="/checkout"><button class="checkout" type="button">Checkout</button></a>
+        <a *ngIf="!checkout" routerLink="/checkout"><button class="checkout" type="button">Checkout</button></a>
     </div>
     <ul class="cart">
         <li class="item" *ngFor="let item of cart">
@@ -11,7 +11,7 @@
                 <app-product-name [name]="item.product.name"></app-product-name>
                 <app-product-price [price]="item.product.price"></app-product-price>
             </div>
-            <form (ngSubmit)="updateQuantity(item.id, item.quantity)">
+            <form *ngIf="!checkout" (ngSubmit)="updateQuantity(item.id, item.quantity)">
                 <!-- <label for="quantity">Quantity</label> -->
                 <input
                     type="number" 
