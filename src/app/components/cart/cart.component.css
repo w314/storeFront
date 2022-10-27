@@ -61,3 +61,20 @@ form {
 h1 {
     text-align: center;
 }
+
+@media (max-width: 450px) {
+    .item {
+        width: 100%;
+    }
+}
+@media (min-width: 450px) {
+    .details {
+        display: block;
+    }
+}
+
+@media (min-width: 600px) {
+    .details {
+        display: flex;
+    }
+}
