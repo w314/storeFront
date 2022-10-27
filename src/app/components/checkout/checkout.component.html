@@ -1,6 +1,6 @@
 <div class="checkout">
     <app-cart [checkout]="true"></app-cart>
-    <form #form="ngForm" (ngSubmit)="onSubmit()">
+    <form *ngIf="!success" #form="ngForm" (ngSubmit)="onSubmit()">
         <label for="name">Full name</label>
         <input  type="text" id="name"
             minlength="2"
@@ -24,4 +24,10 @@
         >
         <button type="submit" [disabled]="form.invalid">Submit</button>
     </form>
+    <div class="success" *ngIf="success">
+        <p class="thanks">Thank you <span class="name">{{ name }}</span> for you order!</p>
+        <p>Your order will be delivered to</p>
+        <p class="address">{{ address }}</p>
+
+    </div>
 </div>

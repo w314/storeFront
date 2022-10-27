@@ -12,6 +12,7 @@ export class CheckoutComponent implements OnInit {
   name: string = ''
   address: string = ''
   creditCard: string = ''
+  success: boolean = false
 
 
   constructor(private router:Router) { }
@@ -21,8 +22,9 @@ export class CheckoutComponent implements OnInit {
 
   onSubmit():void {
     sessionStorage.setItem('name', this.name)
+    this.success = true
     // console.log('checkout submit button clicked')
-    this.router.navigate(['checkout','success'])
+    // this.router.navigate(['checkout','success'])
   }
 
 }
