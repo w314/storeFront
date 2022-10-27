@@ -20,6 +20,7 @@ export class AddToCartComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(`Add to cart button clicked.\nproduct id: ${this.productId}, quantity: ${this.quantity}`)
     this.cartService.addToCart(this.productId, this.quantity)
   }
 

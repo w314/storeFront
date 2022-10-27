@@ -20,12 +20,14 @@ export class CartService {
   }
 
   addToCart(productId: number, quantity: number) {
+    console.log(`in cart service, add to cart\nproduct id: ${productId}, quantity: ${quantity}`)
     // check if item is already in cart:
-    const item = this.cart.items.find(item => item.productId == productId)
-    if (item) {
+    const itemIndex = this.cart.items.findIndex(item => item.productId == productId)
+    // console.log(`product in cart: ${JSON.stringify(item, null, 4)}`)
+    if (itemIndex != -1) {
       // update quantity if item is already in order
-      const prevQuantity = item.quantity
-      this.cart.items[item.id].quantity = prevQuantity + quantity
+      const prevQuantity = this.cart.items[itemIndex].quantity
+      this.cart.items[itemIndex].quantity = prevQuantity + quantity
     } else {
       // create new item in order
       const newItem: OrderItem = {

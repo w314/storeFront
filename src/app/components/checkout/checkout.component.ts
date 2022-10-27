@@ -10,6 +10,8 @@ import { Form } from '@angular/forms'
 export class CheckoutComponent implements OnInit {
 
   name: string = ''
+  address: string = ''
+  creditCard: string = ''
 
 
   constructor(private router:Router) { }

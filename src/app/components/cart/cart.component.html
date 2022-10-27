@@ -11,8 +11,8 @@
                 <app-product-name [name]="item.product.name"></app-product-name>
                 <app-product-price [price]="item.product.price"></app-product-price>
             </div>
-            <form *ngIf="!checkout" (ngSubmit)="updateQuantity(item.id, item.quantity)">
-                <!-- <label for="quantity">Quantity</label> -->
+            <form  (ngSubmit)="updateQuantity(item.id, item.quantity)">
+                <label *ngIf="checkout" for="quantity">Quantity:</label>
                 <input
                     type="number" 
                     min="1"
@@ -24,9 +24,10 @@
                     [(ngModel)]="item.quantity"
                     #quantity="ngModel"
                     aria-label="quantity"
+                    [disabled]="checkout"
                 >
-                <button class="update" type="submit" [disabled]="quantity.invalid || quantity.pristine">Update</button>
-                <button class="delete" type="button" (click)="deleteItem(item.id)">delete</button>
+                <button *ngIf="!checkout" class="update" type="submit" [disabled]="quantity.invalid || quantity.pristine">Update</button>
+                <button *ngIf="!checkout" class="delete" type="button" (click)="deleteItem(item.id)">delete</button>
             </form>
         </li>
     </ul>

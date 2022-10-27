@@ -61,6 +61,11 @@ input {
     margin: var(--button-margin);
 }
 
+
+input.ng-invalid.ng-dirty {
+    border-left: solid 5px red;
+}
+
 .displayBlock {
     display: block;
 }
