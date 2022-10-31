@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-name.component.css'],
 })
 export class ProductNameComponent implements OnInit {
-  @Input() name: string = '';
+  @Input() name = '';
 
   constructor() {}
 

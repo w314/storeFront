@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -8,10 +7,10 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./checkout.component.css'],
 })
 export class CheckoutComponent implements OnInit {
-  name: string = '';
-  address: string = '';
-  creditCard: string = '';
-  success: boolean = false;
+  name = '';
+  address = '';
+  creditCard = '';
+  success = false;
 
   constructor(private cartService: CartService) {}
 

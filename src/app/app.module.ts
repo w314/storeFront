@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderItemComponent } from './components/order-item/order-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { SuccessComponent } from './components/success/success.component';
 import { ProductImageComponent } from './components/product-image/product-image.component';
 import { ProductNameComponent } from './components/product-name/product-name.component';
 import { ProductPriceComponent } from './components/product-price/product-price.component';
@@ -28,7 +27,6 @@ import { ProductPriceComponent } from './components/product-price/product-price.
     CartComponent,
     OrderItemComponent,
     CheckoutComponent,
-    SuccessComponent,
     ProductImageComponent,
     ProductNameComponent,
     ProductPriceComponent,

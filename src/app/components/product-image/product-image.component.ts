@@ -6,8 +6,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-image.component.css'],
 })
 export class ProductImageComponent implements OnInit {
-  @Input() url: string = '';
-  @Input() name: string = '';
+  @Input() url = '';
+  @Input() name = '';
 
   constructor() {}
 

@@ -3,12 +3,11 @@ import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/Product';
 import { Order } from 'src/app/models/Order';
 import { ProductService } from './../../services/product.service';
-import { CurrencyPipe } from '@angular/common';
 
 class CartItem {
-  id: number = 0;
+  id = 0;
   product: Product = {} as Product;
-  quantity: number = 0;
+  quantity = 0;
 }
 
 @Component({
@@ -19,8 +18,8 @@ class CartItem {
 export class CartComponent implements OnInit {
   cart: CartItem[] = [];
   products: Product[] = [];
-  total: string = '';
-  @Input() checkout: boolean = false;
+  total = '';
+  @Input() checkout = false;
 
   constructor(
     private cartService: CartService,

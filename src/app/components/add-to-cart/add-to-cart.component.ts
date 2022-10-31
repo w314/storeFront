@@ -8,9 +8,9 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class AddToCartComponent implements OnInit {
   // componenet receives productId from parent component
-  @Input() productId: number = 0;
+  @Input() productId = 0;
   // quantity is set to string as it comes from an text input form
-  quantity: number = 1;
+  quantity = 1;
 
   constructor(private cartService: CartService) {}
 

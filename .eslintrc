@@ -13,7 +13,10 @@
   ],
   "rules": {
     "no-console": "off",
-    "prettier/prettier": 2 // Means error
+    "prettier/prettier": 2, // Means error
+    // "no-empty-function": ["error", {"allow": ["methods", "constructors"] }]
+    "no-empty-function": "off"
+
   }
 }
 
