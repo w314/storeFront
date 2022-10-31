@@ -4,24 +4,22 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-add-to-cart',
   templateUrl: './add-to-cart.component.html',
-  styleUrls: ['./add-to-cart.component.css']
+  styleUrls: ['./add-to-cart.component.css'],
 })
-
 export class AddToCartComponent implements OnInit {
-
   // componenet receives productId from parent component
-  @Input() productId: number = 0
-  // quantity is set to string as it comes from an text input form 
-  quantity: number = 1
+  @Input() productId: number = 0;
+  // quantity is set to string as it comes from an text input form
+  quantity: number = 1;
 
-  constructor(private cartService: CartService  ) { }
+  constructor(private cartService: CartService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
-    console.log(`Add to cart button clicked.\nproduct id: ${this.productId}, quantity: ${this.quantity}`)
-    this.cartService.addToCart(this.productId, this.quantity)
+    console.log(
+      `Add to cart button clicked.\nproduct id: ${this.productId}, quantity: ${this.quantity}`
+    );
+    this.cartService.addToCart(this.productId, this.quantity);
   }
-
 }

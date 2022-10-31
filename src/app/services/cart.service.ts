@@ -4,53 +4,54 @@ import { Order } from '../models/Order';
 import { OrderItem } from '../models/OrderItem';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
-  cart:Order =  {
+  cart: Order = {
     items: [],
-    status: 'active'
-  }
+    status: 'active',
+  };
 
-  constructor() { }
+  constructor() {}
 
   getCart() {
-    return this.cart
+    return this.cart;
   }
 
   addToCart(productId: number, quantity: number) {
     // console.log(`in cart service, add to cart\nproduct id: ${productId}, quantity: ${quantity}`)
     // check if item is already in cart:
-    const itemIndex = this.cart.items.findIndex(item => item.productId == productId)
+    const itemIndex = this.cart.items.findIndex(
+      (item) => item.productId == productId
+    );
     if (itemIndex != -1) {
       // update quantity if item is already in order
-      const prevQuantity = this.cart.items[itemIndex].quantity
-      this.cart.items[itemIndex].quantity = prevQuantity + quantity
+      const prevQuantity = this.cart.items[itemIndex].quantity;
+      this.cart.items[itemIndex].quantity = prevQuantity + quantity;
     } else {
       // create new item in order
       const newItem: OrderItem = {
         id: this.cart.items.length + 1,
         quantity: quantity,
-        productId: productId
-      }
-      this.cart.items.push(newItem)
+        productId: productId,
+      };
+      this.cart.items.push(newItem);
     }
-    console.log(this.cart.items)
+    console.log(this.cart.items);
   }
 
-  deleteItem(id:number) {
-    this.cart.items = this.cart.items.filter(item => item.id != id)
+  deleteItem(id: number) {
+    this.cart.items = this.cart.items.filter((item) => item.id != id);
   }
 
   updateQuantity(id: number, quantity: number) {
-    console.log(`cart item id: ${id}, new quantity: ${quantity}`)
-    const itemIndex = this.cart.items.findIndex(item => item.id == id)    
-    this.cart.items[itemIndex].quantity = quantity
-    console.log(this.cart)
+    console.log(`cart item id: ${id}, new quantity: ${quantity}`);
+    const itemIndex = this.cart.items.findIndex((item) => item.id == id);
+    this.cart.items[itemIndex].quantity = quantity;
+    console.log(this.cart);
   }
 
   emptyCart(): void {
-    this.cart.items = []
+    this.cart.items = [];
   }
 }

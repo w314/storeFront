@@ -1,18 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 // import Router
-import { Router } from '@angular/router'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.css']
+  styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
-

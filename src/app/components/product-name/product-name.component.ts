@@ -3,15 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-product-name',
   templateUrl: './product-name.component.html',
-  styleUrls: ['./product-name.component.css']
+  styleUrls: ['./product-name.component.css'],
 })
 export class ProductNameComponent implements OnInit {
+  @Input() name: string = '';
 
-  @Input() name: string = ''
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

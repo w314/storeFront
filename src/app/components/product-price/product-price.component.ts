@@ -3,25 +3,20 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-product-price',
   templateUrl: './product-price.component.html',
-  styleUrls: ['./product-price.component.css']
+  styleUrls: ['./product-price.component.css'],
 })
 export class ProductPriceComponent implements OnInit {
+  @Input() price: number = 0;
 
-  @Input() price: number = 0
+  constructor() {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  
-  }
-
-  priceToString():string {
+  priceToString(): string {
     const dollarUS = Intl.NumberFormat('en-US', {
-      style : 'currency',
-      currency: 'USD'
-    })
-    return dollarUS.format(this.price)
+      style: 'currency',
+      currency: 'USD',
+    });
+    return dollarUS.format(this.price);
   }
-
-
 }

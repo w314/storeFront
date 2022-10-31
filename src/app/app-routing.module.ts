@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // import router
-import { Routes, RouterModule } from '@angular/router'
+import { Routes, RouterModule } from '@angular/router';
 // import components
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
@@ -16,19 +16,17 @@ const routes: Routes = [
   { path: 'products/:productId', component: ProductDetailComponent },
   { path: 'cart', component: CartComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'checkout/success', component: SuccessComponent }
-]
+  { path: 'checkout/success', component: SuccessComponent },
+];
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     // add RouterModule to imports
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   // export RouterModule
-  exports: [
-    RouterModule
-  ]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

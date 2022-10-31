@@ -1,9 +1,9 @@
 // import OrderItem model
-import { OrderItem } from "./OrderItem";
+import { OrderItem } from './OrderItem';
 
 export class Order {
-    items: OrderItem[] = []
-    status: 'active' | 'completed' = 'active'
+  items: OrderItem[] = [];
+  status: 'active' | 'completed' = 'active';
 
-    constructor(){}
+  constructor() {}
 }

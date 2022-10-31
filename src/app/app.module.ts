@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
@@ -17,7 +17,6 @@ import { ProductImageComponent } from './components/product-image/product-image.
 import { ProductNameComponent } from './components/product-name/product-name.component';
 import { ProductPriceComponent } from './components/product-price/product-price.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,15 +31,10 @@ import { ProductPriceComponent } from './components/product-price/product-price.
     SuccessComponent,
     ProductImageComponent,
     ProductNameComponent,
-    ProductPriceComponent
+    ProductPriceComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
