@@ -1,3 +1,15 @@
+TODO:
+Add item added to cart message on product list and product detail pages
+
+TODO
+add error messages under input boxes
+
+TODO
+finalize credit card lenght info
+
+
+
+
 # Store Front Tutorial
 How to build store front app
 
