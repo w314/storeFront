@@ -37,9 +37,9 @@ export class ProductDetailComponent implements OnInit {
       // get products
       this.productService.getProducts().subscribe((data) => {
         // find product with requested id
-        const p: Product | null = data.find(
+        const p: Product | undefined = data.find(
           (product) => product.id == productId
-        )!;
+        );
         if (p) {
           this.product = p;
         }
