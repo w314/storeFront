@@ -3,24 +3,36 @@
         <label for="name">Full name</label>
         <input  type="text" id="name"
         minlength="2"
+        pattern = "[a-z, A-Z]*"
         required
         [(ngModel)]="name" name="name" 
+        #fullName = "ngModel"
         >
-        <p *ngIf=""></p>
+        <p *ngIf="fullName.invalid && (fullName.dirty || fullName.touched)"
+            class="inputError">
+            Name has to be at least 2 characters long.
+        </p>
         <label for="address">Address</label>
         <input type="text" id="address"
             required
-            minlength="5"
             [(ngModel)]="address" name="address"
-            >
-            <label for="creditCard">Credit card number</label>
-            <input type="text" id="creditCard"
+            #shippingAddress = "ngModel"
+        >
+        <p *ngIf="shippingAddress.invalid && (shippingAddress.touched || shippingAddress.dirty)"
+            class="inputError">
+            Address is a required field.
+        </p>
+        <label for="creditCard">Credit card number</label>
+        <input type="text" id="creditCard"
             required
             pattern="[0-9]*"
-            minlength="2"
-            maxlength="2"
+            minlength="4"
+            maxlength="4"
             [(ngModel)]="creditCard" name="creditCard"
+            #card = "ngModel"
         >
+        <p *ngIf="card.invalid && (card.touched || card.dirty)"
+            class="inputError">Credit card has to be a 4 digit number.</p>
         <button type="submit" [disabled]="form.invalid">Submit</button>
     </form>
     <div class="success" *ngIf="success">
