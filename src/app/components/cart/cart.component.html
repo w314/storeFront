@@ -25,8 +25,8 @@
                     #quantity="ngModel"
                     aria-label="quantity"
                     [disabled]="checkout"
+                    (ngModelChange)="updateQuantity(item.id, item.quantity)"
                 >
-                <button *ngIf="!checkout" class="update" type="submit" [disabled]="quantity.invalid || quantity.pristine">Update</button>
                 <button *ngIf="!checkout" class="delete" type="button" (click)="deleteItem(item.id)">delete</button>
             </form>
         </li>
