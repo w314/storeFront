@@ -14,8 +14,8 @@
   "rules": {
     "no-console": "off",
     "prettier/prettier": 2, // Means error
-    // "no-empty-function": ["error", {"allow": ["methods", "constructors"] }]
-    "no-empty-function": "off"
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["error", {"allow": ["methods", "constructors"] }]
 
   }
 }

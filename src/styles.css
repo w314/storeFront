@@ -66,6 +66,10 @@ input.ng-invalid.ng-dirty {
     border-left: solid 5px red;
 }
 
+input[required] {
+    border-left: solid 5px rgb(14, 229, 14);   
+}
+
 .displayBlock {
     display: block;
 }

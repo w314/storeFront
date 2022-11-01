@@ -1,11 +1,10 @@
 <div class="checkout">
-    <app-cart [checkout]="true"></app-cart>
     <form *ngIf="!success" #form="ngForm" (ngSubmit)="onSubmit()">
         <label for="name">Full name</label>
         <input  type="text" id="name"
-            minlength="2"
-            required
-            [(ngModel)]="name" name="name" 
+        minlength="2"
+        required
+        [(ngModel)]="name" name="name" 
         >
         <p *ngIf=""></p>
         <label for="address">Address</label>
@@ -13,9 +12,9 @@
             required
             minlength="5"
             [(ngModel)]="address" name="address"
-        >
-        <label for="creditCard">Credit card number</label>
-        <input type="text" id="creditCard"
+            >
+            <label for="creditCard">Credit card number</label>
+            <input type="text" id="creditCard"
             required
             pattern="[0-9]*"
             minlength="2"
@@ -28,6 +27,7 @@
         <p class="thanks">Thank you <span class="name">{{ name }}</span> for you order!</p>
         <p>Your order will be delivered to</p>
         <p class="address">{{ address }}</p>
-
+        
     </div>
+    <app-cart [checkout]="true"></app-cart>
 </div>
