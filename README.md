@@ -1,59 +1,37 @@
 # StoreFront
 
-## Setup
+## Installation Instructions
 
-### Install node
-Install `nvm` node version manager:
+Use your terminal to run the commands needed to start the application.
+
+### 1. Clone directory
 ```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
-User `nvm` to install the latest version of node:
-```bash
-nvm install node
+git clone https://github.com/w314/storeFront.git
 ```
 
-If you don't have `angular` installed, run:
+### 2.  Install dependencies
 ```bash
-sudo npm install -g @angular/cli
+cd storeFront
+npm install
 ```
-
-Start application:
+### 3. Start server
 ```bash
 ng serve
 ```
+### 4. Open application
 
-Open browser at:
-```
-localhost:4200
-```
-If you want ot use another port open application by providing the desired port number:
-```bash
-ng serve --port 4100
-```
+In you browser navigate to: `http:\\localhost:4200`
 
+<br>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+## User Manual
 
-## Development server
+- Use the `Products` menu item to see all available product. You can add them to your cart by selecting the desired quantity and clicking on the `Add To Cart`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Click on any product to get a detailed description of the product. You can add them to your cart on this page too.
 
-## Code scaffolding
+- When ready to purchase select the `Cart` menu item. Here you can edit your cart by changing the quantity of items or deleting them completely from you cart.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- To finish the purchase click on the orange `Checkout` button.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- After entering your full name, address and credit card number, click on the `Submit` button to finalize your purchase.
