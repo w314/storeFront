@@ -1,38 +1,59 @@
-<!-- use (ngSubmit) event listener to listen to submit event and set function to call -->
-<form #form="ngForm" (ngSubmit)="onSubmit()">
-    <!-- use interpolation {{ }} to display productId property -->
-    <!-- <p>{{productId}}</p> -->
-    <!-- <label for="quantity">Quantity</label> -->
-    <!-- use two way binding [( )] to bind input to quantity property -->
-    <!-- input tag's name property has to be set -->
-    <!-- 
-        to use field in *ngIf directive #fieldName="ngModel" has to be set
-        this #fieldName has to differ the one used in name attribute
-    -->
-    <input 
-        class="displayBlock center form-control"
-        type="number" 
-        min="1"
-        max="100"
-        step="1"
-        pattern="[0-9]*"
-        id="quantity" 
-        name="quantity" 
-        aria-label="quantity"
-        required
-        [(ngModel)]="quantity"
-        #qty="ngModel"
-    >
-    <p *ngIf="qty.invalid && qty.dirty"
-        class="inputError">
-        Quantity has to be an integer between 1 and 100.
-    </p>
-    <button
-        class="displayBlock center"
-        type="submit" 
-        [disabled]="form.invalid"
-    >Add To Cart</button>
-    <p *ngIf="form.submitted" class="addedToCart">
-        {{ submitMessage }}
-    </p>
-</form>
+<div *ngIf="!inCart && !inCheckout">
+    <!-- use (ngSubmit) event listener to listen to submit event and set function to call -->
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <!-- use interpolation {{ }} to display productId property -->
+        <!-- <p>{{productId}}</p> -->
+        <!-- <label for="quantity">Quantity</label> -->
+        <!-- use two way binding [( )] to bind input to quantity property -->
+        <!-- input tag's name property has to be set -->
+        <!-- 
+            to use field in *ngIf directive #fieldName="ngModel" has to be set
+            this #fieldName has to differ the one used in name attribute
+        -->
+        <input 
+            class="displayBlock center form-control"
+            type="number" 
+            min="1"
+            max="100"
+            step="1"
+            pattern="[0-9]*"
+            id="quantity" 
+            name="quantity" 
+            aria-label="quantity"
+            required
+            [(ngModel)]="quantity"
+            #qty="ngModel"
+        >
+        <p *ngIf="qty.invalid && qty.dirty"
+            class="inputError">
+            Quantity has to be an integer between 1 and 100.
+        </p>
+        <button
+            class="displayBlock center"
+            type="submit" 
+            [disabled]="form.invalid"
+        >Add To Cart</button>
+        <p *ngIf="form.submitted" class="addedToCart">
+            {{ submitMessage }}
+        </p>
+    </form>
+</div>
+<div *ngIf="inCart || inCheckout">
+    <form>
+        <label *ngIf="inCheckout" for="quantity">Quantity:</label>
+        <input
+            type="number" 
+            min="1"
+            max="100"
+            step="1"
+            pattern="[0-9]*"
+            id="quantity" 
+            name="quantity" 
+            [(ngModel)]="quantity"
+            #itemQuantity="ngModel"
+            aria-label="quantity"
+            [disabled]="inCheckout"
+            (ngModelChange)="update(productId, quantity)"
+        >
+        <button *ngIf="!inCheckout" class="delete" type="button" (click)="delete(productId)">delete</button>
+    </form></div>

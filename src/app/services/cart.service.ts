@@ -31,7 +31,7 @@ export class CartService {
     } else {
       // create new item in order
       const newItem: OrderItem = {
-        id: this.cart.items.length + 1,
+        // id: this.cart.items.length + 1,
         quantity: quantity,
         productId: productId,
       };
@@ -40,13 +40,12 @@ export class CartService {
     console.log(this.cart.items);
   }
 
-  deleteItem(id: number) {
-    this.cart.items = this.cart.items.filter((item) => item.id != id);
+  deleteItem(productId: number) {
+    this.cart.items = this.cart.items.filter((item) => item.productId != productId);
   }
 
-  updateQuantity(id: number, quantity: number) {
-    console.log(`cart item id: ${id}, new quantity: ${quantity}`);
-    const itemIndex = this.cart.items.findIndex((item) => item.id == id);
+  updateQuantity(productId: number, quantity: number) {
+    const itemIndex = this.cart.items.findIndex((item) => item.productId == productId);
     this.cart.items[itemIndex].quantity = quantity;
     console.log(this.cart);
   }

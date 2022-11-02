@@ -10,7 +10,6 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { AddToCartComponent } from './components/add-to-cart/add-to-cart.component';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from './components/cart/cart.component';
-import { OrderItemComponent } from './components/order-item/order-item.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ProductImageComponent } from './components/product-image/product-image.component';
 import { ProductNameComponent } from './components/product-name/product-name.component';
@@ -25,7 +24,6 @@ import { ProductPriceComponent } from './components/product-price/product-price.
     ProductDetailComponent,
     AddToCartComponent,
     CartComponent,
-    OrderItemComponent,
     CheckoutComponent,
     ProductImageComponent,
     ProductNameComponent,

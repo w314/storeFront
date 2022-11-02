@@ -46,14 +46,6 @@ label {
     justify-content: space-between;
 }
 
-#quantity {
-    margin-right: 10px;
-}
-
-.update {
-    margin-right: 30px;
-}
-
 form {
     text-align: center;
 }

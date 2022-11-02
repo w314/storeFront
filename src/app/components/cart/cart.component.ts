@@ -3,9 +3,9 @@ import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/models/Product';
 import { Order } from 'src/app/models/Order';
 import { ProductService } from './../../services/product.service';
+import { OrderItem } from 'src/app/models/OrderItem'
 
 class CartItem {
-  id = 0;
   product: Product = {} as Product;
   quantity = 0;
 }
@@ -35,7 +35,6 @@ export class CartComponent implements OnInit {
           (product) => product.id == item.productId
         ) as Product;
         const cartItem: CartItem = {
-          id: item.id,
           product: product,
           quantity: item.quantity,
         };
@@ -53,24 +52,28 @@ export class CartComponent implements OnInit {
       currency: 'USD',
     });
     const totalPrice: number = this.cart.reduce(
-      (total, item) => (total += item.product.price * item.quantity),
+      (total, item) => {
+        console.log(`In REDUCE: price: ${item.product.price}, quantity: ${item.quantity}`)
+        return total += item.product.price * item.quantity},
       0
     );
     this.total = dollarUS.format(totalPrice);
+    console.log(`\n NEW TOTAL: ${this.total}`)
     sessionStorage.setItem('total', this.total);
   }
 
-  deleteItem(id: number): void {
-    this.cart = this.cart.filter((item) => item.id != id);
-    this.cartService.deleteItem(id);
+  deleteItem(productId: number): void {
+    const item = this.cart.filter((item) => item.product.id == productId)[0]
+    this.cart = this.cart.filter((item) => item.product.id != productId);
+    this.cartService.deleteItem(productId);
     this.updateTotal();
+    window.alert(`${item.product.name} was deleted from your cart.`)
   }
 
-  updateQuantity(id: number, quantity: number): void {
-    console.log(`UPDATE BUTTON CLICKED`);
-    // const itemIndex = this.cart.findIndex(item => item.id == id)
-    // this.cart.
-    this.cartService.updateQuantity(id, quantity);
+  updateQuantity(orderItem: OrderItem): void {
+    const itemIndex = this.cart.findIndex(item => item.product.id == orderItem.productId)
+    this.cart[itemIndex].quantity =  orderItem.quantity
+    this.cartService.updateQuantity(orderItem.productId, orderItem.quantity);
     this.updateTotal();
   }
 }

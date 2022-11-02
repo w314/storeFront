@@ -1,3 +1,11 @@
+#quantity {
+    margin-right: 10px;
+}
+
+.delete {
+    margin-right: 30px;
+}
+
 .addedToCart {
     font-style: italic
 }

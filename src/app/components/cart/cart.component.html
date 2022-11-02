@@ -11,25 +11,19 @@
                 <app-product-name [name]="item.product.name"></app-product-name>
                 <app-product-price [price]="item.product.price"></app-product-price>
             </div>
-            <form>
-                <label *ngIf="checkout" for="quantity">Quantity:</label>
-                <input
-                    type="number" 
-                    min="1"
-                    max="100"
-                    step="1"
-                    pattern="[0-9]*"
-                    id="quantity" 
-                    name="quantity" 
-                    [(ngModel)]="item.quantity"
-                    #quantity="ngModel"
-                    aria-label="quantity"
-                    [disabled]="checkout"
-                    (ngModelChange)="updateQuantity(item.id, item.quantity)"
-                >
-                <button *ngIf="!checkout" class="delete" type="button" (click)="deleteItem(item.id)">delete</button>
-            </form>
-        </li>
+            <!-- 
+                send information from parent to child [],
+                receive information from child () and assign action
+            -->
+            <app-add-to-cart 
+                [quantity]="item.quantity"
+                [productId]="item.product.id"
+                [inCart] = "true"
+                [inCheckout]="checkout"
+                (updateQuantity)="updateQuantity($event)"
+                (deleteItem)="deleteItem($event)"
+            ></app-add-to-cart>
+        </li> 
     </ul>
 </div>
 <div class="content" *ngIf="cart.length == 0">
