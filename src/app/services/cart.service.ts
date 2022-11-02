@@ -41,11 +41,15 @@ export class CartService {
   }
 
   deleteItem(productId: number) {
-    this.cart.items = this.cart.items.filter((item) => item.productId != productId);
+    this.cart.items = this.cart.items.filter(
+      (item) => item.productId != productId
+    );
   }
 
   updateQuantity(productId: number, quantity: number) {
-    const itemIndex = this.cart.items.findIndex((item) => item.productId == productId);
+    const itemIndex = this.cart.items.findIndex(
+      (item) => item.productId == productId
+    );
     this.cart.items[itemIndex].quantity = quantity;
     console.log(this.cart);
   }

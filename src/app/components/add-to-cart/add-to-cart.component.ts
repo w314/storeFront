@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
-import { OrderItem } from 'src/app/models/OrderItem';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -11,15 +10,18 @@ export class AddToCartComponent implements OnInit {
   // componenet receives productId from parent component
   @Input() productId = 0;
   @Input() quantity = 1;
-  @Input() inCheckout = false
-  @Input() inCart = false
-  
-  @Output() updateQuantity:EventEmitter<{productId:number, quantity: number}> = new EventEmitter
-  @Output() deleteItem: EventEmitter<number> = new EventEmitter
-  
+  @Input() inCheckout = false;
+  @Input() inCart = false;
+
+  @Output() updateQuantity: EventEmitter<{
+    productId: number;
+    quantity: number;
+  }> = new EventEmitter();
+  @Output() deleteItem: EventEmitter<number> = new EventEmitter();
+
   addedToCart = false;
   submitMessage = '';
-  deleteMessage = ''
+  deleteMessage = '';
 
   constructor(private cartService: CartService) {}
 
@@ -36,12 +38,10 @@ export class AddToCartComponent implements OnInit {
   }
 
   update(productId: number, quantity: number): void {
-    this.updateQuantity.emit({productId, quantity})
+    this.updateQuantity.emit({ productId, quantity });
   }
-  
-  delete(productId: number): void {
-    this.deleteItem.emit(productId)
-  }
-  
 
+  delete(productId: number): void {
+    this.deleteItem.emit(productId);
+  }
 }
