@@ -11,7 +11,7 @@
                 <app-product-name [name]="item.product.name"></app-product-name>
                 <app-product-price [price]="item.product.price"></app-product-price>
             </div>
-            <form  (ngSubmit)="updateQuantity(item.id, item.quantity)">
+            <form>
                 <label *ngIf="checkout" for="quantity">Quantity:</label>
                 <input
                     type="number" 
