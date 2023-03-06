@@ -1,94 +1,9 @@
-TODO:
-Add item added to cart message on product list and product detail pages
-
-TODO
-add error messages under input boxes
-
-TODO
-finalize credit card lenght info
-
-Setup
-Install node
-Install nvm node version manager:
-
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-User nvm to install the latest version of node:
-
-nvm install node
-If you don't have angular installed, run:
-
-sudo npm install -g @angular/cli
-Start application:
-
-ng serve
-Open browser at:
-
-localhost:4200
-If you want ot use another port open application by providing the desired port number:
-
-ng serve --port 4100
-
-
-Install `nvm` node version manager:
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-```
-User `nvm` to install the latest version of node:
-```bash
-nvm install node
-```
-
-If you don't have `angular` installed, run:
-```bash
-sudo npm install -g @angular/cli
-```
-
-Start application:
-```bash
-ng serve
-```
-
-Open browser at:
-```
-localhost:4200
-```
-If you want ot use another port open application by providing the desired port number:
-```bash
-ng serve --port 4100
-```
-
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
 
 # Store Front Tutorial
 How to build store front app
 
-## Initate Angular App
+## Setup
+### 1.Create application
 ```bash
 ng new storeFront
 ```
@@ -98,16 +13,75 @@ ng serve --port 4100
 ```
 It should display standard angular app front page.
 
-### Setup GIT 
-Add remote repository:
+### 2. Add remote Git Repository
 ```bash
 git remote add origin <reporitory_url>
 ```
-Add initial commit:
+Create initial commit:
 ```bash
 git add .
 git commit -m 'feat: Intial commit'
 ```
+
+## Set up routing
+
+### 1 Create components for our pages
+The application will have two pages the home page which will list our products and the cart page.
+
+```bash
+ng g c components/ProductList
+ng g c components/Cart
+```
+
+
+### 2. Setup Router
+
+Create the application routing module:
+```bash
+ng generate module app-routing --flat --module=app
+```
+- `--flat` puts the file under src/app instead of its own directory
+- `--module=app` tells `ng generate` to register it in the imports array of the AppModule (`src/app.module.ts`)
+
+Add code to `src/app/app-routing.module.ts`
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+### 2. Create NavBar Component
+```bash
+# add components directory
+mkdir src/app/components
+# generate NavBar component
+ng g c components/NavBar
+```
+`src/app/components/nav-bar/nav-bar.component.ts`:
+- import Router
+- add Router as constructor parameter
+
+`src/app/components/nav-bar/nav-bar.component.html`:
+- use `routerLink="/products"` instead of `href=`, it allows navigation without reloading the pages
+
+`src/app/app-component.html`:
+replace content with:
+```html
+<app-nav-bar></app-nav-bar>
+<router-outlet></router-outlet>
+```
+This will display nav-bar on every page and lets the router fill the rest of the page with conent based on the page requested.
+
+CHECK POINT: navigating to localhost:4200 will automatically redirect to localhost:4200/products and a link to `Products` is displayed as part of the navigation bar
+
+
+
 ## Get Products from web server
 
 ### Create Product Model
@@ -233,47 +207,6 @@ CHECK POINT: webpage should show a `product works!` for each product in our list
 ```html
 
 ```
-## Set up router
-
-Run ng generate to create the application routing module.
-```bash
-ng generate module app-routing --flat --module=app
-```
---flat Puts the file in src/app instead of its own directory.
---module=app Tells ng generate to register it in the imports array of the AppModule.
-
-Add code to `src/app/app-routing.module.ts`
-- import router
-- import components
-- create routes
-- add RouterModule to `@NgModule` imports
-- add RouterModule to `@NgModule` exports
-
-```typescript
-
-```
-
-### Create NavBar Component
-```bash
-ng g c components/NavBar
-```
-`src/app/components/nav-bar/nav-bar.component.ts`:
-- import Router
-- add Router as constructor parameter
-
-`src/app/components/nav-bar/nav-bar.component.html`:
-- use `routerLink="/products"` instead of `href=`, it allows navigation without reloading the pages
-
-`src/app/app-component.html`:
-replace content with:
-```html
-<app-nav-bar></app-nav-bar>
-<router-outlet></router-outlet>
-```
-This will display nav-bar on every page and lets the router fill the rest of the page with conent based on the page requested.
-
-CHECK POINT: navigating to localhost:4200 will automatically redirect to localhost:4200/products and a link to `Products` is displayed as part of the navigation bar
-
 
 ## Add Product Detail Page
 
@@ -395,4 +328,100 @@ ng g c components/OrderItem
 - import OrderItem model
 - import Input decorater
 - add OrderItem property, use @Input()
+
+
+
+
+-__________________________________
+
+OLD STUFF BELOW
+
+
+
+
+TODO:
+Add item added to cart message on product list and product detail pages
+
+TODO
+add error messages under input boxes
+
+TODO
+finalize credit card lenght info
+
+Setup
+Install node
+Install nvm node version manager:
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+User nvm to install the latest version of node:
+
+nvm install node
+If you don't have angular installed, run:
+
+sudo npm install -g @angular/cli
+Start application:
+
+ng serve
+Open browser at:
+
+localhost:4200
+If you want ot use another port open application by providing the desired port number:
+
+ng serve --port 4100
+
+
+Install `nvm` node version manager:
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+```
+User `nvm` to install the latest version of node:
+```bash
+nvm install node
+```
+
+If you don't have `angular` installed, run:
+```bash
+sudo npm install -g @angular/cli
+```
+
+Start application:
+```bash
+ng serve
+```
+
+Open browser at:
+```
+localhost:4200
+```
+If you want ot use another port open application by providing the desired port number:
+```bash
+ng serve --port 4100
+```
+
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+
+## Code scaffolding
+
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
