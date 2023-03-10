@@ -7,7 +7,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./add-to-cart.component.css'],
 })
 export class AddToCartComponent implements OnInit {
-  // componenet receives productId from parent component
+  // component receives productId from parent component
   @Input() productId = 0;
   @Input() quantity = 1;
   @Input() inCheckout = false;

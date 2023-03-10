@@ -1,3 +1,27 @@
+# Store Front Tutorial
+How to build store front app
+
+## Initate Angular App
+Create application:
+```bash
+ng new storeFront
+```
+Start application:
+```bash
+ng serve --port 4100
+```
+It should display standard angular app front page.
+
+Add remote git repository:
+```bash
+git remote add origin <reporitory_url>
+```
+
+
+<hr />
+<hr />
+
+
 TODO:
 Add item added to cart message on product list and product detail pages
 
@@ -85,29 +109,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
 
-# Store Front Tutorial
-How to build store front app
-
-## Initate Angular App
-```bash
-ng new storeFront
-```
-CHECK POINT: test your new app by runnig it:
-```bash
-ng serve --port 4100
-```
-It should display standard angular app front page.
-
-### Setup GIT 
-Add remote repository:
-```bash
-git remote add origin <reporitory_url>
-```
-Add initial commit:
-```bash
-git add .
-git commit -m 'feat: Intial commit'
-```
 ## Get Products from web server
 
 ### Create Product Model
