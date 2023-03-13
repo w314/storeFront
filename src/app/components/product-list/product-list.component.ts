@@ -10,7 +10,7 @@ import { Product } from './../../models/Product';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-  // variable to store array of products
+  // property to store array of products
   products: Product[] = [];
 
   // inject productService to constructor
