@@ -13,7 +13,7 @@ export class ProductComponent implements OnInit {
   // @Input() productId: number
 
   constructor() {
-    // intitalize product variable
+    // intitalize product property
     this.product = {
       id: 0,
       name: '',
