@@ -13,6 +13,8 @@ class CartItem {
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
+  // use product-list.component.css as using classes productList and product 
+  // to assure products are displayed in similar style
   styleUrls: ['./cart.component.css', '../product-list/product-list.component.css'],
 })
 export class CartComponent implements OnInit {
