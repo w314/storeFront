@@ -1,5 +1,13 @@
+#app {
+  background-color: var(--app-bg-color)
+}
+
 header {
     padding: 10px;
+    border-top: solid 0.6rem var(--header-border-color);
+    border-bottom:  solid 0.6rem var(--header-border-color);
+    font-size: 1.2rem;
+
 }
 
 h1 {

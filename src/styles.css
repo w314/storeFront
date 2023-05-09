@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    /* 
+  
+  /* body background */
+  --main-bg-color: #d4d4d4;
+  
+  /* app background */
+  --app-bg-color: #f2f2f2;
+  
+  /* HEADER */
+  /* header border color */
+  --header-border-color: #022859;
+  /* --header-color: black; */
+  --header-color:  #022859;
+
+  /* 
+
     Sand Tan: #e1b382
 
 Sand Tan Shadow: #c89666
@@ -11,20 +25,20 @@ Night Blue Shadow: #12343b
     
     */
     /* --header-color: #12343b; */
-    --header-color: black;
     --link-color: #2d545e;
 
-    --main-bg-color: white;
+    /* --main-bg-color: white; */
     --main-color: black;
     /* --main-font:  */
     /* --button-bg-color: #e1b382;
     --button-border-color: #c89666; */
-    --button-bg-color: var(--header-color);
+
+    /* BUTTONS */
+    /* --button-bg-color: var(--header-color); */
+    --button-bg-color: var(--main-bg-color);
     --button-border-color: #2d545e;
-
-
     --button-color: white;
-    --button-padding: 3px;
+    --button-padding: 0.5rem;
     --button-margin: 5px auto;
 }
 
@@ -36,6 +50,7 @@ Night Blue Shadow: #12343b
 body {
     max-width: 1200px;
     margin: auto;
+    background-color: var(--main-bg-color);
 }
 
 li {

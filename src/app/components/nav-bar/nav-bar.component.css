@@ -6,3 +6,11 @@ nav {
 a {
     margin: 0 10px;
 }
+
+button {
+  background-color: var(--button-bg-color);
+  min-width: 120px;
+  /* border-color: var(--header-border-color); */
+  color: var(--header-border-color);
+  font-size: 1.1rem;
+}
