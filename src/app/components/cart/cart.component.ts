@@ -13,7 +13,7 @@ class CartItem {
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css'],
+  styleUrls: ['./cart.component.css', '../product-list/product-list.component.css'],
 })
 export class CartComponent implements OnInit {
   cart: CartItem[] = [];

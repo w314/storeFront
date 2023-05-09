@@ -1,3 +1,4 @@
+<!-- Show this form if it's not part of cart page or checkout -->
 <div *ngIf="!inCart && !inCheckout">
     <!-- use (ngSubmit) event listener to listen to submit event and set function to call -->
     <form #form="ngForm" (ngSubmit)="onSubmit()">
@@ -42,6 +43,7 @@
         </p>
     </form>
 </div>
+<!-- Show the form below if in cart or in checkout -->
 <div *ngIf="inCart || inCheckout">
     <form>
         <label *ngIf="inCheckout" for="quantity">Quantity:</label>
@@ -59,5 +61,7 @@
             [disabled]="inCheckout"
             (ngModelChange)="update(productId, quantity)"
         >
+        <button type="button">update quantity</button>
         <button *ngIf="!inCheckout" class="delete" type="button" (click)="delete(productId)">delete</button>
-    </form></div>
+    </form>
+  </div>

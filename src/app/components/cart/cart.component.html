@@ -1,11 +1,12 @@
-<div class="content" *ngIf="cart.length > 0">
+<!-- Show this if cart is not empty -->
+<div *ngIf="cart.length > 0">
     <div class="summary">
         <label for="total">Total: </label>
         <p class="total">{{ total }}</p>
         <a *ngIf="!checkout" routerLink="/checkout"><button class="checkout" type="button">Checkout</button></a>
     </div>
-    <ul class="cart">
-        <li class="item" *ngFor="let item of cart">
+    <ul class="productList">
+        <li class="product" *ngFor="let item of cart">
             <app-product-image [url]="item.product.url"></app-product-image>
             <div class="details">
                 <app-product-name [name]="item.product.name"></app-product-name>
@@ -26,6 +27,8 @@
         </li> 
     </ul>
 </div>
-<div class="content" *ngIf="cart.length == 0">
+
+<!-- Show this message if cart is empty -->
+<div class="emptyCart" *ngIf="cart.length == 0">
     <h1>your cart is empty</h1>
 </div>

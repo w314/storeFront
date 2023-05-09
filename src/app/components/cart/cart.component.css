@@ -1,6 +1,3 @@
-.content {
-    padding: 20px;
-}
 .summary {
     padding-top: 20px;
     text-align: center;
@@ -29,18 +26,6 @@ label {
     padding: 5px;
 }
 
-.cart {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.item {
-    width: 40%;
-    padding: 10px;
-}
-
 .details {
     display: flex;
     justify-content: space-between;
@@ -52,6 +37,11 @@ form {
 
 h1 {
     text-align: center;
+}
+
+.emptyCart {
+  padding-top: 3rem;
+  min-height: 800px;
 }
 
 @media (max-width: 450px) {
