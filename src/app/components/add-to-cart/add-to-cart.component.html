@@ -10,8 +10,9 @@
             to use field in *ngIf directive #fieldName="ngModel" has to be set
             this #fieldName has to differ the one used in name attribute
         -->
+        <div>
         <input 
-            class="displayBlock center form-control"
+            class="center form-control"
             type="number" 
             min="1"
             max="100"
@@ -24,15 +25,18 @@
             [(ngModel)]="quantity"
             #qty="ngModel"
         >
+        <button
+        class="center"
+        type="submit" 
+        [disabled]="form.invalid"
+        >Add To Cart</button>
+        <!-- In case of input error show error message -->
+      </div>
         <p *ngIf="qty.invalid && qty.dirty"
             class="inputError">
             Quantity has to be an integer between 1 and 100.
         </p>
-        <button
-            class="displayBlock center"
-            type="submit" 
-            [disabled]="form.invalid"
-        >Add To Cart</button>
+        <!-- show add to cart confirmation if added to cart -->
         <p *ngIf="form.submitted" class="addedToCart">
             {{ submitMessage }}
         </p>

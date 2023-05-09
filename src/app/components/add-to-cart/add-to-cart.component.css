@@ -9,3 +9,16 @@
 .addedToCart {
     font-style: italic
 }
+
+input {
+  background-color: var(--app-bg-color);
+}
+
+button {
+  background-color: var(--button-bg-color);
+}
+
+form {
+  display: flex wrap;
+
+}
