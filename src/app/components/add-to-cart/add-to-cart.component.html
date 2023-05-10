@@ -61,7 +61,6 @@
             [disabled]="inCheckout"
             (ngModelChange)="update(productId, quantity)"
         >
-        <button type="button">update quantity</button>
         <button *ngIf="!inCheckout" class="delete" type="button" (click)="delete(productId)">delete</button>
     </form>
   </div>

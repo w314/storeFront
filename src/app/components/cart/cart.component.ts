@@ -69,7 +69,7 @@ export class CartComponent implements OnInit {
     this.cart = this.cart.filter((item) => item.product.id != productId);
     this.cartService.deleteItem(productId);
     this.updateTotal();
-    window.alert(`${item.product.name} was deleted from your cart.`);
+    // window.alert(`${item.product.name} was deleted from your cart.`);
   }
 
   updateQuantity(orderItem: OrderItem): void {
